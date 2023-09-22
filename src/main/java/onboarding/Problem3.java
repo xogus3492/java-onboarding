@@ -14,7 +14,27 @@ public class Problem3 {
             throw new InputOutOfBoundsException(ErrorMessage.INPUT_OUT_OF_BOUNDS);
         }
 
+        for (int i = 1; i <= number; i++) {
+            answer += getClapCount(i);
+        }
+
         return answer;
+    }
+
+    public static int getClapCount(int num) {
+        if (isPossibleDivThree(num)) {
+            return getDigit(num);
+        }
+
+        return 0;
+    }
+
+    public static boolean isPossibleDivThree(int num) {
+        return false;
+    }
+
+    public static int getDigit(int num) {
+        return 0;
     }
 
     public static boolean isIncorrectNumRange(int number) {
