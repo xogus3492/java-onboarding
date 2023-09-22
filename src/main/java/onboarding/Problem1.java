@@ -9,12 +9,46 @@ class Problem1 {
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         int answer = 0;
+        int pobiScore = 0;
+        int crongScore = 0;
 
         if (pageValidation(pobi) || pageValidation(crong)) {
             return EXCEPTION_NUMBER;
         }
 
+        pobiScore = getMaxNum(getMaxNum(calculateAdd(pobi.get(0)), calculateMulti(pobi.get(0)))
+                , getMaxNum(calculateAdd(pobi.get(0)), calculateMulti(pobi.get(1))));
+
+        crongScore = getMaxNum(getMaxNum(calculateAdd(crong.get(0)), calculateMulti(crong.get(0)))
+                , getMaxNum(calculateAdd(crong.get(0)), calculateMulti(crong.get(1))));
+
         return answer;
+    }
+
+    public static int calculateAdd(int num) {
+        int result = 0;
+
+        while (num > 0) {
+            result += num % 10;
+            num /= 10;
+        }
+
+        return result;
+    }
+
+    public static int calculateMulti(int num) {
+        int result = 1;
+
+        while (num > 0) {
+            result *= num % 10;
+            num /= 10;
+        }
+
+        return result;
+    }
+
+    public static int getMaxNum(int firstNum, int secondNum) {
+        return Math.max(firstNum, secondNum);
     }
 
     public static boolean pageValidation(List<Integer> pageList) {
