@@ -15,25 +15,25 @@ public class Problem3 {
         }
 
         for (int i = 1; i <= number; i++) {
-            answer += getClapCount(i);
+            answer += getTotalClapCount(i);
         }
 
         return answer;
     }
 
-    public static int getClapCount(int num) {
-        if (isPossibleDivThree(num)) {
-            return getDigit(num);
+    public static int getTotalClapCount(int num) {
+        int cnt = 0;
+
+        while (num > 0) {
+            int number = num % 10;
+            cnt += getClapCount(number);
+            num /= 10;
         }
 
-        return 0;
+        return cnt;
     }
 
-    public static boolean isPossibleDivThree(int num) {
-        return false;
-    }
-
-    public static int getDigit(int num) {
+    public static int getClapCount(int num) {
         return 0;
     }
 
