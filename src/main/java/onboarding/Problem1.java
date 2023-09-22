@@ -4,13 +4,15 @@ import java.util.List;
 
 class Problem1 {
     private static final int EXCEPTION_NUMBER = -1;
+    private static final int DRAW_NUMBER = 0;
+    private static final int POBI_WIN_NUMBER = 1;
+    private static final int CRONG_WIN_NUMBER = 2;
     private static final int FIRST_PAGE = 1;
     private static final int LAST_PAGE = 400;
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        int answer = 0;
-        int pobiScore = 0;
-        int crongScore = 0;
+        int pobiScore;
+        int crongScore;
 
         if (pageValidation(pobi) || pageValidation(crong)) {
             return EXCEPTION_NUMBER;
@@ -22,7 +24,19 @@ class Problem1 {
         crongScore = getMaxNum(getMaxNum(calculateAdd(crong.get(0)), calculateMulti(crong.get(0)))
                 , getMaxNum(calculateAdd(crong.get(0)), calculateMulti(crong.get(1))));
 
-        return answer;
+        return printResult(pobiScore, crongScore);
+    }
+
+    public static int printResult(int pobiScore, int crongScore) {
+        if (pobiScore > crongScore) {
+            return POBI_WIN_NUMBER;
+        }
+
+        if (pobiScore < crongScore) {
+            return CRONG_WIN_NUMBER;
+        }
+
+        return DRAW_NUMBER;
     }
 
     public static int calculateAdd(int num) {
@@ -62,7 +76,7 @@ class Problem1 {
 
     public static boolean isNotPageRange(List<Integer> pageList) {
         return pageList.get(0) < FIRST_PAGE || pageList.get(0) > LAST_PAGE ||
-            pageList.get(1) < FIRST_PAGE || pageList.get(1) > LAST_PAGE;
+                pageList.get(1) < FIRST_PAGE || pageList.get(1) > LAST_PAGE;
     }
 
     public static boolean isNotContinuous(List<Integer> pageList) {
