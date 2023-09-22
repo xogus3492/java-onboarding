@@ -23,17 +23,18 @@ public class Problem3 {
 
     public static int getTotalClapCount(int num) {
         int cnt = 0;
-
         while (num > 0) {
             int number = num % 10;
             cnt += getClapCount(number);
             num /= 10;
         }
-
         return cnt;
     }
 
-    public static int getClapCount(int num) {
+    public static int getClapCount(int number) {
+        if (number != 0 && number % 3 == 0) {
+            return 1;
+        }
         return 0;
     }
 
