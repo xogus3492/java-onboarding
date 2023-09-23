@@ -2,7 +2,7 @@ package onboarding;
 
 import onboarding.error.ErrorMessage;
 import onboarding.error.exception.problem2.IncorrectFormStringException;
-import onboarding.error.exception.problem2.LengthOutOfBoundsException;
+import onboarding.error.exception.common.LengthOutOfBoundsException;
 
 import java.util.Stack;
 
