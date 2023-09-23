@@ -40,7 +40,13 @@ public class Problem4 {
     }
 
     public static char convertChar(char c, int charCase) {
-        return ' ';
+        if (charCase == LOWER_CASE) {
+            return (char) (LOWER_CASE_Z - (c - LOWER_CASE_A));
+        }
+        if (charCase == UPPER_CASE) {
+            return (char) (UPPER_CASE_Z - (c - UPPER_CASE_A));
+        }
+        return c;
     }
 
     public static boolean isIncorrectStringLength(String word) {
