@@ -14,7 +14,7 @@ public class Problem2 {
         String prevStr = "";
 
         if (isInCorrectStringLength(cryptogram)) {
-            throw new LengthOutOfBoundsException(ErrorMessage.LENGTH_OUT_OF_BOUNDS);
+            throw new LengthOutOfBoundsException(ErrorMessage.LENGTH_OUT_OF_BOUNDS_P2);
         }
 
         if (isNotComposedLowerCase(cryptogram)) {
