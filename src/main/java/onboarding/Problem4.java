@@ -10,8 +10,6 @@ public class Problem4 {
     private static final char LOWER_CASE_Z = 'z';
     private static final char UPPER_CASE_A = 'A';
     private static final char UPPER_CASE_Z = 'Z';
-    private static final int LOWER_CASE = 0;
-    private static final int UPPER_CASE = 1;
 
     public static String solution(String word) {
         if (isIncorrectStringLength(word)) {
@@ -31,22 +29,20 @@ public class Problem4 {
 
     public static char getFilteredChar(char c) {
         if (c >= LOWER_CASE_A && c <= LOWER_CASE_Z) {
-            return convertChar(c, LOWER_CASE);
+            return convertLowerChar(c);
         }
         if (c >= UPPER_CASE_A && c <= UPPER_CASE_Z) {
-            return convertChar(c, UPPER_CASE);
+            return convertUpperChar(c);
         }
         return c;
     }
 
-    public static char convertChar(char c, int charCase) {
-        if (charCase == LOWER_CASE) {
-            return (char) (LOWER_CASE_Z - (c - LOWER_CASE_A));
-        }
-        if (charCase == UPPER_CASE) {
-            return (char) (UPPER_CASE_Z - (c - UPPER_CASE_A));
-        }
-        return c;
+    public static char convertLowerChar(char c) {
+        return (char) (LOWER_CASE_Z - (c - LOWER_CASE_A));
+    }
+
+    public static char convertUpperChar(char c) {
+        return (char) (UPPER_CASE_Z - (c - UPPER_CASE_A));
     }
 
     public static boolean isIncorrectStringLength(String word) {
