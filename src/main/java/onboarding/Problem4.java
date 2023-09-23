@@ -8,13 +8,25 @@ public class Problem4 {
     private static final int MAX_LENGTH = 1000;
 
     public static String solution(String word) {
-        String answer = "";
-
         if (isIncorrectStringLength(word)) {
             throw new LengthOutOfBoundsException(ErrorMessage.LENGTH_OUT_OF_BOUNDS_P4);
         }
 
-        return answer;
+        return generateConvertedString(word);
+    }
+
+    public static String generateConvertedString(String word) {
+        String resultStr = "";
+
+        for (int i = 0; i < word.length(); i++) {
+            resultStr += getFilteredChar(word.charAt(i));
+        }
+
+        return resultStr;
+    }
+
+    public static char getFilteredChar(char c) {
+        return ' ';
     }
 
     public static boolean isIncorrectStringLength(String word) {
