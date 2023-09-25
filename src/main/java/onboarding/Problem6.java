@@ -16,31 +16,44 @@ public class Problem6 {
     private static final int MAX_NICKNAME_LENGTH = 19;
 
     public static List<String> solution(List<List<String>> forms) {
-        List<String> emailList = new ArrayList<>();
+        List<String> emailList;
+        Map<String, String> wordMap = new HashMap<>();
+        Set<String> emailSet = new TreeSet<>();
 
         verifyListSize(forms);
 
         for (List<String> member : forms) {
             String email = member.get(0);
             String nickname = member.get(1);
-            List<String> wordList = new ArrayList();
 
             verifyEmailLength(email);
             verifyNicknameLength(nickname);
 
-            addWordList(nickname, wordList);
+            createContinuousWordAndVerification(email, nickname, wordMap, emailSet);
         }
+
+        emailList = new ArrayList<>(emailSet);
+        Collections.sort(emailList);
 
         return emailList;
     }
 
-    public static void addWordList(String nickname, List<String> wordList) {
+    public static void createContinuousWordAndVerification(String email, String nickname,
+                                                            Map<String, String> wordMap, Set<String> emailSet) {
         for (int i = 0; i < nickname.length() - 1; i++) {
             String head = String.valueOf(nickname.charAt(i));
             String tail = String.valueOf(nickname.charAt(i+1));
-            wordList.add(head + tail);
+            String continuousWord = head + tail;
+
+            processWord(email, continuousWord, wordMap, emailSet);
         }
     }
+
+    public static void processWord(String email, String continuousWord,
+                                   Map<String, String> wordMap, Set<String> emailSet) {
+    }
+
+
 
     public static void verifyListSize(List<List<String>> forms) {
         if (forms.size() < MIN_LIST_SIZE || forms.size() > MAX_LIST_SIZE) {
