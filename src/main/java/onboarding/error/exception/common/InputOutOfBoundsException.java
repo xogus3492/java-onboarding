@@ -1,4 +1,4 @@
-package onboarding.error.exception.problem3;
+package onboarding.error.exception.common;
 
 import onboarding.error.ErrorMessage;
 

@@ -1,7 +1,7 @@
 package onboarding;
 
 import onboarding.error.ErrorMessage;
-import onboarding.error.exception.problem3.InputOutOfBoundsException;
+import onboarding.error.exception.common.InputOutOfBoundsException;
 
 public class Problem3 {
     private static final int MIN_NUM = 1;
