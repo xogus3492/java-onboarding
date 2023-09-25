@@ -29,7 +29,7 @@ public class Problem6 {
             verifyEmailLength(email);
             verifyNicknameLength(nickname);
 
-            createContinuousWordAndVerification(email, nickname, wordMap, emailSet);
+            createContinuousWordAndCheck(email, nickname, wordMap, emailSet);
         }
 
         emailList = new ArrayList<>(emailSet);
@@ -38,22 +38,25 @@ public class Problem6 {
         return emailList;
     }
 
-    public static void createContinuousWordAndVerification(String email, String nickname,
+    public static void createContinuousWordAndCheck(String email, String nickname,
                                                             Map<String, String> wordMap, Set<String> emailSet) {
         for (int i = 0; i < nickname.length() - 1; i++) {
             String head = String.valueOf(nickname.charAt(i));
             String tail = String.valueOf(nickname.charAt(i+1));
             String continuousWord = head + tail;
 
-            processWord(email, continuousWord, wordMap, emailSet);
+            checkAndSaveWord(email, continuousWord, wordMap, emailSet);
         }
     }
 
-    public static void processWord(String email, String continuousWord,
+    public static void checkAndSaveWord(String email, String continuousWord,
                                    Map<String, String> wordMap, Set<String> emailSet) {
+        if (wordMap.containsKey(continuousWord)) {
+            emailSet.add(wordMap.get(continuousWord));
+            emailSet.add(email);
+        }
+        wordMap.put(continuousWord, email);
     }
-
-
 
     public static void verifyListSize(List<List<String>> forms) {
         if (forms.size() < MIN_LIST_SIZE || forms.size() > MAX_LIST_SIZE) {
