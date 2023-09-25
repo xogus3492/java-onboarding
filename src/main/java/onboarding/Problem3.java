@@ -11,7 +11,7 @@ public class Problem3 {
         int answer = 0;
 
         if (isIncorrectNumRange(number)) {
-            throw new InputOutOfBoundsException(ErrorMessage.INPUT_OUT_OF_BOUNDS);
+            throw new InputOutOfBoundsException(ErrorMessage.INPUT_OUT_OF_BOUNDS_P3);
         }
 
         for (int i = 1; i <= number; i++) {

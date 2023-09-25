@@ -7,7 +7,7 @@ public enum ErrorMessage {
     INCORRECT_FORM_STRING("소문자 외 문자를 포함하고 있습니다."),
 
     // problem3
-    INPUT_OUT_OF_BOUNDS("입력받은 수가 1 ~ 10000의 범위를 벗어났습니다."),
+    INPUT_OUT_OF_BOUNDS_P3("입력받은 수가 1 ~ 10000의 범위를 벗어났습니다."),
 
     // problem4
     LENGTH_OUT_OF_BOUNDS_P4("길이 1 ~ 1000의 범위를 벗어났습니다."),
