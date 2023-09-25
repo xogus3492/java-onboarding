@@ -12,8 +12,11 @@ public enum ErrorMessage {
     // problem4
     LENGTH_OUT_OF_BOUNDS_P4("길이 1 ~ 1000의 범위를 벗어났습니다."),
 
-    // problem3
-    INPUT_OUT_OF_BOUNDS_P5("입력받은 수가 1 ~ 1000000의 범위를 벗어났습니다.");
+    // problem5
+    INPUT_OUT_OF_BOUNDS_P5("입력받은 수가 1 ~ 1000000의 범위를 벗어났습니다."),
+
+    // problem6
+    INCORRECT_NUMBER_OF_MEMBER("크루원 수 1명 ~ 10000명을 벗어났습니다.");
 
     private final String message;
 
