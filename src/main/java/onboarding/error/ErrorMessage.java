@@ -10,7 +10,10 @@ public enum ErrorMessage {
     INPUT_OUT_OF_BOUNDS("입력받은 수가 1 ~ 10000의 범위를 벗어났습니다."),
 
     // problem4
-    LENGTH_OUT_OF_BOUNDS_P4("길이 1 ~ 1000의 범위를 벗어났습니다.");
+    LENGTH_OUT_OF_BOUNDS_P4("길이 1 ~ 1000의 범위를 벗어났습니다."),
+
+    // problem3
+    INPUT_OUT_OF_BOUNDS_P5("입력받은 수가 1 ~ 1000000의 범위를 벗어났습니다.");
 
     private final String message;
 
