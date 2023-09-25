@@ -16,7 +16,8 @@ public enum ErrorMessage {
     INPUT_OUT_OF_BOUNDS_P5("입력받은 수가 1 ~ 1000000의 범위를 벗어났습니다."),
 
     // problem6
-    INCORRECT_NUMBER_OF_MEMBER("크루원 수 1명 ~ 10000명을 벗어났습니다.");
+    INCORRECT_NUMBER_OF_MEMBER("크루원 수 1명 ~ 10000명을 벗어났습니다."),
+    INCLUDE_INCORRECT_EMAIL_LENGTH("길이가 11자 ~ 20자가 아닌 이메일이 포함되어 있습니다.");
 
     private final String message;
 
