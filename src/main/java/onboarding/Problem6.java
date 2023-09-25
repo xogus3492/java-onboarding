@@ -5,7 +5,7 @@ import onboarding.error.exception.problem6.EmailLengthOutOfBoundsException;
 import onboarding.error.exception.problem6.ListSizeOutOfRange;
 import onboarding.error.exception.problem6.NicknameLengthOutOfBoundsException;
 
-import java.util.List;
+import java.util.*;
 
 public class Problem6 {
     private static final int MIN_LIST_SIZE = 1;
@@ -16,19 +16,30 @@ public class Problem6 {
     private static final int MAX_NICKNAME_LENGTH = 19;
 
     public static List<String> solution(List<List<String>> forms) {
-        List<String> answer = List.of("answer");
+        List<String> emailList = new ArrayList<>();
 
         verifyListSize(forms);
 
         for (List<String> member : forms) {
             String email = member.get(0);
             String nickname = member.get(1);
+            List<String> wordList = new ArrayList();
 
             verifyEmailLength(email);
             verifyNicknameLength(nickname);
+
+            addWordList(nickname, wordList);
         }
 
-        return answer;
+        return emailList;
+    }
+
+    public static void addWordList(String nickname, List<String> wordList) {
+        for (int i = 0; i < nickname.length() - 1; i++) {
+            String head = String.valueOf(nickname.charAt(i));
+            String tail = String.valueOf(nickname.charAt(i+1));
+            wordList.add(head + tail);
+        }
     }
 
     public static void verifyListSize(List<List<String>> forms) {
