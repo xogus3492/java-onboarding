@@ -22,7 +22,8 @@ public enum ErrorMessage {
 
     // problem7
     USER_LENGTH_OUT_OF_BOUNDS("user의 길이 1 ~ 30의 범위를 벗어났습니다."),
-    FRIENDS_LENGTH_OUT_OF_BOUNDS("friends 리스트 길이 1 ~ 30의 범위를 벗어났습니다.");
+    FRIENDS_LENGTH_OUT_OF_BOUNDS("friends 리스트 길이 1 ~ 10000의 범위를 벗어났습니다."),
+    VISITORS_LENGTH_OUT_OF_BOUNDS("visitors 리스트 길이 0 ~ 10000의 범위를 벗어났습니다.");
 
     private final String message;
 
