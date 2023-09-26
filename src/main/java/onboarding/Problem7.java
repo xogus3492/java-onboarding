@@ -23,20 +23,27 @@ public class Problem7 {
         verifyFriendsListLength(friends);
         verifyVisitorsListLength(visitors);
 
-        exploreFriendsListForSaveUserFriends(friends, friendSet);
+        exploreFriendsListForSaveUserFriends(user, friends, friendSet);
 
         return answer;
     }
 
-    public static void exploreFriendsListForSaveUserFriends(List<List<String>> friends, Set<String> friendSet) {
+    public static void exploreFriendsListForSaveUserFriends(String user, List<List<String>> friends, Set<String> friendSet) {
         for (List<String> relationship : friends) {
             String A = relationship.get(0);
             String B = relationship.get(1);
-            saveUserFriends(A, B, friendSet);
+            saveUserFriends(user, A, B, friendSet);
         }
     }
 
-    public static void saveUserFriends(String A, String B, Set<String> friendSet) {
+    public static void saveUserFriends(String user, String A, String B, Set<String> friendSet) {
+        if (A.equals(user)) {
+            friendSet.add(B);
+        }
+
+        if (B.equals(user)) {
+            friendSet.add(A);
+        }
     }
 
     public static void verifyUserInputLength(String user) {
