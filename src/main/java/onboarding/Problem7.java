@@ -18,6 +18,7 @@ public class Problem7 {
         List<String> answer = Collections.emptyList();
         Set<String> friendSet = new HashSet<>();
         Map<String, Integer> recommendFriendMap = new HashMap<>();
+        List<String> rFMapKeySet = Collections.emptyList();
 
         verifyUserInputLength(user);
         verifyFriendsListLength(friends);
@@ -27,6 +28,8 @@ public class Problem7 {
 
         exploreFriendsListForGivePoints(user, friends, friendSet, recommendFriendMap);
         givePointsToVisitor(visitors, recommendFriendMap);
+
+        rFMapKeySet = sortRecommendFriendBasedPoint(recommendFriendMap);
 
         return answer;
     }
@@ -77,6 +80,14 @@ public class Problem7 {
         for (String visitor : visitors) {
             recommendFriendMap.put(visitor, recommendFriendMap.getOrDefault(visitor, 0) + VISITOR_RECOMMEND_POINT);
         }
+    }
+
+    public static List<String> sortRecommendFriendBasedPoint(Map<String, Integer> recommendFriendMap) {
+        List<String> rFMapKeySet = new ArrayList<>(recommendFriendMap.keySet());
+        rFMapKeySet.sort((o1, o2)
+                -> recommendFriendMap.get(o2).compareTo(recommendFriendMap.get(o1)));
+
+        return rFMapKeySet;
     }
 
     public static void verifyUserInputLength(String user) {
