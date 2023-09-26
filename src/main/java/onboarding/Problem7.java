@@ -4,7 +4,9 @@ import onboarding.error.ErrorMessage;
 import onboarding.error.exception.common.LengthOutOfBoundsException;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Problem7 {
     private static final int MIN_USER_LENGTH = 1;
@@ -15,12 +17,26 @@ public class Problem7 {
 
     public static List<String> solution(String user, List<List<String>> friends, List<String> visitors) {
         List<String> answer = Collections.emptyList();
+        Set<String> friendSet = new HashSet<>();
 
         verifyUserInputLength(user);
         verifyFriendsListLength(friends);
         verifyVisitorsListLength(visitors);
 
+        exploreFriendsListForSaveUserFriends(friends, friendSet);
+
         return answer;
+    }
+
+    public static void exploreFriendsListForSaveUserFriends(List<List<String>> friends, Set<String> friendSet) {
+        for (List<String> relationship : friends) {
+            String A = relationship.get(0);
+            String B = relationship.get(1);
+            saveUserFriends(A, B, friendSet);
+        }
+    }
+
+    public static void saveUserFriends(String A, String B, Set<String> friendSet) {
     }
 
     public static void verifyUserInputLength(String user) {
