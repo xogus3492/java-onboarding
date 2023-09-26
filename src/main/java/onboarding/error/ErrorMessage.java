@@ -21,7 +21,8 @@ public enum ErrorMessage {
     INCLUDE_INCORRECT_NICKNAME_LENGTH("길이가 1자 ~ 19자가 아닌 닉네임이 포함되어 있습니다."),
 
     // problem7
-    USER_LENGTH_OUT_OF_BOUNDS("user의 길이 1 ~ 30의 범위를 벗어났습니다.");
+    USER_LENGTH_OUT_OF_BOUNDS("user의 길이 1 ~ 30의 범위를 벗어났습니다."),
+    FRIENDS_LENGTH_OUT_OF_BOUNDS("friends 리스트 길이 1 ~ 30의 범위를 벗어났습니다.");
 
     private final String message;
 
