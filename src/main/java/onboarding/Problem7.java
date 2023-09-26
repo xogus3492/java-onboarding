@@ -71,11 +71,11 @@ public class Problem7 {
         }
 
         if (friendSet.contains(A) && !friendSet.contains(B)) {
-            recommendFriendMap.put(A, recommendFriendMap.getOrDefault(A, 0) + MUTUAL_FRIEND_RECOMMEND_POINT);
+            recommendFriendMap.put(B, recommendFriendMap.getOrDefault(B, 0) + MUTUAL_FRIEND_RECOMMEND_POINT);
         }
 
         if (friendSet.contains(B) && !friendSet.contains(A)) {
-            recommendFriendMap.put(B, recommendFriendMap.getOrDefault(B, 0) + MUTUAL_FRIEND_RECOMMEND_POINT);
+            recommendFriendMap.put(A, recommendFriendMap.getOrDefault(A, 0) + MUTUAL_FRIEND_RECOMMEND_POINT);
         }
     }
 
