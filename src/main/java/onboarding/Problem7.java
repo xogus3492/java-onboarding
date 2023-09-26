@@ -32,7 +32,6 @@ public class Problem7 {
 
         rFMapKeySet = sortRecommendFriendBasedPoint(recommendFriendMap);
         addRecommendFriend(answer, rFMapKeySet);
-        sortAnswerList(answer);
 
         return answer;
     }
@@ -96,7 +95,8 @@ public class Problem7 {
     public static List<String> sortRecommendFriendBasedPoint(Map<String, Integer> recommendFriendMap) {
         List<String> rFMapKeySet = new ArrayList<>(recommendFriendMap.keySet());
         rFMapKeySet.sort((o1, o2)
-                -> recommendFriendMap.get(o2).compareTo(recommendFriendMap.get(o1)));
+                -> recommendFriendMap.get(o1) == recommendFriendMap.get(o2)
+                ? o1.compareTo(o2) : recommendFriendMap.get(o2) - recommendFriendMap.get(o1));
 
         return rFMapKeySet;
     }
@@ -108,10 +108,6 @@ public class Problem7 {
             answer.add(rFMapKeySet.get(index));
             index++;
         }
-    }
-
-    public static void sortAnswerList(List<String> answer) {
-        Collections.sort(answer);
     }
 
     public static void verifyUserInputLength(String user) {
