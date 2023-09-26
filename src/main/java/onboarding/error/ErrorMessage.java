@@ -18,7 +18,10 @@ public enum ErrorMessage {
     // problem6
     INCORRECT_NUMBER_OF_MEMBER("크루원 수 1명 ~ 10000명을 벗어났습니다."),
     INCLUDE_INCORRECT_EMAIL_LENGTH("길이가 11자 ~ 19자가 아닌 이메일이 포함되어 있습니다."),
-    INCLUDE_INCORRECT_NICKNAME_LENGTH("길이가 1자 ~ 19자가 아닌 닉네임이 포함되어 있습니다.");
+    INCLUDE_INCORRECT_NICKNAME_LENGTH("길이가 1자 ~ 19자가 아닌 닉네임이 포함되어 있습니다."),
+
+    // problem7
+    USER_LENGTH_OUT_OF_BOUNDS("user의 길이 1 ~ 30의 범위를 벗어났습니다.");
 
     private final String message;
 
