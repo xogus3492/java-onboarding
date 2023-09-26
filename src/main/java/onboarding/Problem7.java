@@ -32,6 +32,7 @@ public class Problem7 {
 
         rFMapKeySet = sortRecommendFriendBasedPoint(recommendFriendMap);
         addRecommendFriend(answer, rFMapKeySet);
+        sortAnswerList(answer);
 
         return answer;
     }
@@ -99,6 +100,10 @@ public class Problem7 {
             answer.add(rFMapKeySet.get(index));
             index++;
         }
+    }
+
+    public static void sortAnswerList(List<String> answer) {
+        Collections.sort(answer);
     }
 
     public static void verifyUserInputLength(String user) {
