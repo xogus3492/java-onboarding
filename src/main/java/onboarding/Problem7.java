@@ -16,7 +16,7 @@ public class Problem7 {
     private static final int MAX_NUMBER_OF_RECOMMEND_FRIEND = 5;
 
     public static List<String> solution(String user, List<List<String>> friends, List<String> visitors) {
-        List<String> answer = Collections.emptyList();
+        List<String> answer = new ArrayList<>();
         Set<String> friendSet = new HashSet<>();
         Map<String, Integer> recommendFriendMap = new HashMap<>();
         List<String> rFMapKeySet;
