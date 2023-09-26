@@ -3,10 +3,7 @@ package onboarding;
 import onboarding.error.ErrorMessage;
 import onboarding.error.exception.common.LengthOutOfBoundsException;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Problem7 {
     private static final int MIN_USER_LENGTH = 1;
@@ -18,12 +15,14 @@ public class Problem7 {
     public static List<String> solution(String user, List<List<String>> friends, List<String> visitors) {
         List<String> answer = Collections.emptyList();
         Set<String> friendSet = new HashSet<>();
+        Map<String, Integer> recommendFriendMap = new HashMap<>();
 
         verifyUserInputLength(user);
         verifyFriendsListLength(friends);
         verifyVisitorsListLength(visitors);
 
         exploreFriendsListForSaveUserFriends(user, friends, friendSet);
+        exploreFriendsListForGivePoints(user, friends, friendSet, recommendFriendMap);
 
         return answer;
     }
@@ -44,6 +43,19 @@ public class Problem7 {
         if (B.equals(user)) {
             friendSet.add(A);
         }
+    }
+
+    public static void exploreFriendsListForGivePoints(String user, List<List<String>> friends,
+                                                       Set<String> friendSet, Map<String, Integer> recommendFriendMap) {
+        for (List<String> relationship : friends) {
+            String A = relationship.get(0);
+            String B = relationship.get(1);
+            givePointsToMutualFriend(user, A, B, friendSet, recommendFriendMap);
+        }
+    }
+
+    public static void givePointsToMutualFriend(String user, String A, String B,
+                                                Set<String> friendSet, Map<String, Integer> recommendFriendMap) {
     }
 
     public static void verifyUserInputLength(String user) {
