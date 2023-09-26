@@ -11,6 +11,7 @@ public class Problem7 {
     private static final int MIN_FRIENDS_LENGTH = 1;
     private static final int MAX_FRIENDS_LENGTH = 10000;
     private static final int MAX_VISITORS_LENGTH = 10000;
+    private static final int MUTUAL_FRIEND_RECOMMEND_POINT = 10;
 
     public static List<String> solution(String user, List<List<String>> friends, List<String> visitors) {
         List<String> answer = Collections.emptyList();
@@ -56,6 +57,17 @@ public class Problem7 {
 
     public static void givePointsToMutualFriend(String user, String A, String B,
                                                 Set<String> friendSet, Map<String, Integer> recommendFriendMap) {
+        if (user.equals(A) || user.equals(B)) {
+            return;
+        }
+
+        if (friendSet.contains(A) && !friendSet.contains(B)) {
+            recommendFriendMap.put(A, recommendFriendMap.getOrDefault(A, 0) + MUTUAL_FRIEND_RECOMMEND_POINT);
+        }
+
+        if (friendSet.contains(B) && !friendSet.contains(A)) {
+            recommendFriendMap.put(B, recommendFriendMap.getOrDefault(B, 0) + MUTUAL_FRIEND_RECOMMEND_POINT);
+        }
     }
 
     public static void verifyUserInputLength(String user) {
