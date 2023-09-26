@@ -13,12 +13,13 @@ public class Problem7 {
     private static final int MAX_VISITORS_LENGTH = 10000;
     private static final int MUTUAL_FRIEND_RECOMMEND_POINT = 10;
     private static final int VISITOR_RECOMMEND_POINT = 1;
+    private static final int MAX_NUMBER_OF_RECOMMEND_FRIEND = 5;
 
     public static List<String> solution(String user, List<List<String>> friends, List<String> visitors) {
         List<String> answer = Collections.emptyList();
         Set<String> friendSet = new HashSet<>();
         Map<String, Integer> recommendFriendMap = new HashMap<>();
-        List<String> rFMapKeySet = Collections.emptyList();
+        List<String> rFMapKeySet;
 
         verifyUserInputLength(user);
         verifyFriendsListLength(friends);
@@ -30,6 +31,7 @@ public class Problem7 {
         givePointsToVisitor(visitors, recommendFriendMap);
 
         rFMapKeySet = sortRecommendFriendBasedPoint(recommendFriendMap);
+        addRecommendFriend(answer, rFMapKeySet);
 
         return answer;
     }
@@ -88,6 +90,15 @@ public class Problem7 {
                 -> recommendFriendMap.get(o2).compareTo(recommendFriendMap.get(o1)));
 
         return rFMapKeySet;
+    }
+
+    public static void addRecommendFriend(List<String> answer, List<String> rFMapKeySet) {
+        int index = 0;
+
+        while (index < rFMapKeySet.size() && index <= MAX_NUMBER_OF_RECOMMEND_FRIEND) {
+            answer.add(rFMapKeySet.get(index));
+            index++;
+        }
     }
 
     public static void verifyUserInputLength(String user) {
