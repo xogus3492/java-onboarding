@@ -12,6 +12,7 @@ public class Problem7 {
     private static final int MAX_FRIENDS_LENGTH = 10000;
     private static final int MAX_VISITORS_LENGTH = 10000;
     private static final int MUTUAL_FRIEND_RECOMMEND_POINT = 10;
+    private static final int VISITOR_RECOMMEND_POINT = 1;
 
     public static List<String> solution(String user, List<List<String>> friends, List<String> visitors) {
         List<String> answer = Collections.emptyList();
@@ -23,7 +24,9 @@ public class Problem7 {
         verifyVisitorsListLength(visitors);
 
         exploreFriendsListForSaveUserFriends(user, friends, friendSet);
+
         exploreFriendsListForGivePoints(user, friends, friendSet, recommendFriendMap);
+        givePointsToVisitor(visitors, recommendFriendMap);
 
         return answer;
     }
@@ -67,6 +70,12 @@ public class Problem7 {
 
         if (friendSet.contains(B) && !friendSet.contains(A)) {
             recommendFriendMap.put(B, recommendFriendMap.getOrDefault(B, 0) + MUTUAL_FRIEND_RECOMMEND_POINT);
+        }
+    }
+
+    public static void givePointsToVisitor(List<String> visitors, Map<String, Integer> recommendFriendMap) {
+        for (String visitor : visitors) {
+            recommendFriendMap.put(visitor, recommendFriendMap.getOrDefault(visitor, 0) + VISITOR_RECOMMEND_POINT);
         }
     }
 
