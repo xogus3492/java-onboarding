@@ -28,7 +28,7 @@ public class Problem7 {
         exploreFriendsListForSaveUserFriends(user, friends, friendSet);
 
         exploreFriendsListForGivePoints(user, friends, friendSet, recommendFriendMap);
-        givePointsToVisitor(visitors, recommendFriendMap);
+        exploreVisitorsListForGivePoints(visitors, friendSet, recommendFriendMap);
 
         rFMapKeySet = sortRecommendFriendBasedPoint(recommendFriendMap);
         addRecommendFriend(answer, rFMapKeySet);
@@ -79,8 +79,16 @@ public class Problem7 {
         }
     }
 
-    public static void givePointsToVisitor(List<String> visitors, Map<String, Integer> recommendFriendMap) {
+    public static void exploreVisitorsListForGivePoints(List<String> visitors, Set<String> friendSet,
+                                           Map<String, Integer> recommendFriendMap) {
         for (String visitor : visitors) {
+            givePointsToVisitor(visitor, friendSet, recommendFriendMap);
+        }
+    }
+
+    public static void givePointsToVisitor(String visitor, Set<String> friendSet,
+                                           Map<String, Integer> recommendFriendMap) {
+        if (!friendSet.contains(visitor)) {
             recommendFriendMap.put(visitor, recommendFriendMap.getOrDefault(visitor, 0) + VISITOR_RECOMMEND_POINT);
         }
     }
